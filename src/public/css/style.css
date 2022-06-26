@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@keyframes extend-pergamin {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 75%;
+    }
+}
+
+
+form{
+    z-index: 100;
+    position: relative;
+    display: block; 
+    background-color: rgb(189, 0, 0);
+    width: 0;
+    height: 100px;
+    margin: 200px 0;
+    border-top: 3px solid rgb(255, 196, 0);
+    border-bottom: 3px solid rgb(255, 196, 0);
+    animation: extend-pergamin 2s forwards ease-in-out;
+}
+
+form::after {
+    right: 0;
+    top: -12px;
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 120px;
+    border-left: 1px solid rgb(0, 0, 0);
+    border-top: 3px solid rgb(255, 196, 0);
+    border-bottom: 3px solid rgb(255, 196, 0);
+    background-color: rgb(189, 0, 0);
+}
+
+form > [type="text"] {
+    position: relative;
+    margin-top: 25px;
+    border: none;
+    border-bottom: 2px solid rgb(255, 196, 0);
+    border-radius: 1px;
+    display:block;
+    margin-left: 2px;
+    width: 75%;
+    
+}
+
+form > [type="submit"] {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    transition: right .5s;
+    border: 1px solid rgb(255, 196, 0);
+    background-color: rgb(189, 0, 0);
+    color: rgb(255, 196, 0);
+}
+
+
+
+form > [type="submit"]:hover{
+    right: 10px;
+    cursor: pointer;
+}
+
+body::before{
+    position: absolute;
+    content: 'ヴァレンティノ';
+    font-size: 12vh;
+    top: 10px;
+    right: 50px;
+    writing-mode: vertical-lr;
+    color: rgb(255, 196, 0);
+    text-shadow: 1px 1px 5px rgb(255, 196, 0);
+    font-weight: 800;
+    padding: 10px;
+}
+
+body::after{
+    position: absolute;
+    content: 'ヘルナンデス';
+    font-size: 12vh;
+    bottom: 10px;
+    left: 50px;
+    writing-mode:horizontal-tb;
+    color: rgb(255, 196, 0);
+    text-shadow: 1px 1px 5px rgb(255, 196, 0);
+    font-weight: 800;
+    padding: 10px;
+}
+
+body{
+    overflow: hidden;
+    background-color: rgb(52, 24, 0);
+}
+
+.jap-back::after{
+    position: absolute;
+    content: '痛み自体が痛みです彼らが喜びを提供しない限り、彼はそれを非難します、そして私がそれをすべての憎しみで開くとき、私たちはそれを何よりも何も知らない労働者ではないとみなし、彼を偉大な発明者であると非難します！しかし、撃退';
+    font-size: 6vh;
+    top: 10px;
+    left: 50px;
+    width: 60%;
+    writing-mode:horizontal-tb;
+    color: rgb(255, 196, 0);
+    text-shadow: 1px 1px 5px rgb(255, 196, 0);
+    font-weight: 800;
+    padding: 10px;
+}
+
+.japanese{
+    z-index: 100;
+    position: relative;
+    display: block; 
+    background-color: rgb(189, 0, 0);
+    width: 0;
+    height: 100px;
+    margin: 200px 0;
+    border-top: 3px solid rgb(255, 196, 0);
+    border-bottom: 3px solid rgb(255, 196, 0);
+    animation: extend-pergamin 2s forwards ease-in-out;
+}
+
+@keyframes visible {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.japanese > p{
+    opacity: 0;
+    margin: 30px 10px;
+    font-size: 2vw;
+    width:90%;
+    color: rgb(255, 196, 0);
+    animation: visible 1s 2s forwards ease-in-out;
+}
+.japanese::after {
+    right: 0;
+    top: -12px;
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 120px;
+    border-left: 1px solid rgb(0, 0, 0);
+    border-top: 3px solid rgb(255, 196, 0);
+    border-bottom: 3px solid rgb(255, 196, 0);
+    background-color: rgb(189, 0, 0);
+}

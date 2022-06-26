@@ -1,5 +1,10 @@
-const http = require ('http')
-const fs = require ('fs')
+import colors from 'colors'
+
+import http from 'http'
+import fs from 'fs'
+import {searchCSS, insertCSS} from './src/modules/serverCSS.js'
+
+const PORT = 7777;
 
 http.createServer((req, res) => {
     if (req.url == '/traduct') {
@@ -10,7 +15,7 @@ http.createServer((req, res) => {
             const totally = insertStr (
                 HTML,
                 HTML.search('<body>')+'<body>'.length,
-                '<div class="japanese" >Konnichi wa, '+translation+'-san</div>'
+                '<div class="japanese"><p>Konnichi wa, '+translation+'-san</p></div>'
             ) 
 
             res.write(totally);
@@ -22,13 +27,28 @@ http.createServer((req, res) => {
         return res.end();
     }
 
-}).listen( 7777 )
+}).listen( PORT , _ => {
+    const MSG = colors.bold('Listening on port ');
+    const cPORT =  colors.yellow(String(PORT));
+
+    console.log (MSG+cPORT)
+})
 
 
 function selectPath ( path ) {
     switch ( path ) {
-        case '/': return loadView( './views/index.html' )
-        case '/traduct': return loadView( './views/result.html' )
+        case '/': {
+            const CSS = searchCSS ( './src/public/css/', 'style.css' ) ;
+            const HTML = loadView( './src/views/index.html' ) ;
+            return insertCSS(HTML, CSS) ;
+        }
+
+        case '/traduct': {
+            const CSS = searchCSS ( './src/public/css/', 'style.css' ) ;
+            const HTML = loadView( './src/views/result.html') ;
+            return insertCSS(HTML, CSS) ;
+        }
+
 
         default: return ''
     }
@@ -59,7 +79,7 @@ function translateToJapanese ( data ) {
             }
         }
     }
-    console.log(data);
+
     return data;
 }
 
